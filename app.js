@@ -1,10 +1,12 @@
 require("dotenv").config();
 const express = require("express");
+const sanitize = require("./middlewares/sanitize");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(sanitize);
 
 
 sequelize.sync().then(() => {
