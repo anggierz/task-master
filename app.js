@@ -11,8 +11,8 @@ app.use(express.json());
 app.use(sanitize);
 
 
-app.use("/users", userRoutes);
-app.use("/tasks", taskRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/tasks", taskRoutes);
 
 
 sequelize.sync().then(() => {
