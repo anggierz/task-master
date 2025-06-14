@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node server.js",
     "test": "jest --coverage"
   },
   "keywords": [],
@@ -16,6 +16,7 @@
     "express": "^5.1.0",
     "express-validator": "^7.2.1",
     "helmet": "^8.1.0",
+    "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.14.1",
     "sequelize": "^6.37.7"

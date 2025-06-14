@@ -10,6 +10,8 @@ exports.register = async (req, res) => {
       return res.status(400).json({ message: 'Email and password are required' });
     }
 
+    const userD = await User.findOne({ where: { email: email } });
+    if (userD) return res.status(400).json({ message: 'Email already registered.' });
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await User.create({
@@ -17,7 +19,8 @@ exports.register = async (req, res) => {
       password: hashedPassword
     });
     res.status(201).json("User registered successfully");
-  } catch (err) {
+  }
+   catch (err) {
     console.error(err);
     res.status(500).json({ error: err.message });
   }

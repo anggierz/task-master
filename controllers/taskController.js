@@ -1,10 +1,13 @@
-const { Task } = require('../models');
+const Task = require("../models/Task");
+const taskSchema = require("../schemas/taskSchema");
 
 exports.createTask = async (req, res) => {
   try {
-    const { error } = Task.validate(req.body);
-
-    if (error) return res.status(400).json({ error: error.map(err => err.message) });
+    const { error } = taskSchema.validate(req.body);
+    if (error)
+      return res
+        .status(400)
+        .json({ error: error.details.map((err) => err.message) });
 
     const task = await Task.create({ ...req.body, UserId: req.user.id });
     res.status(201).json(task);
@@ -24,12 +27,17 @@ exports.getTasks = async (req, res) => {
 
 exports.updateTask = async (req, res) => {
   try {
-    const { error } = Task.validate(req.body);
-    if (error) return res.status(400).json({ error: error.map(err => err.message) });
-    
-    const task = await Task.findOne({ where: { id: req.params.id, UserId: req.user.id } });
+    const { error } = taskSchema.validate(req.body);
+    if (error)
+      return res
+        .status(400)
+        .json({ error: error.details.map((err) => err.message) });
 
-    if (!task) return res.status(404).json({ message: 'Task not found' });
+    const task = await Task.findOne({
+      where: { id: req.params.id, UserId: req.user.id },
+    });
+
+    if (!task) return res.status(404).json({ message: "Task not found" });
 
     await task.update(req.body);
     res.json(task);
@@ -40,12 +48,14 @@ exports.updateTask = async (req, res) => {
 
 exports.deleteTask = async (req, res) => {
   try {
-    const task = await Task.findOne({ where: { id: req.params.id, UserId: req.user.id } });
+    const task = await Task.findOne({
+      where: { id: req.params.id, UserId: req.user.id },
+    });
 
-    if (!task) return res.status(404).json({ message: 'Task not found' });
+    if (!task) return res.status(404).json({ message: "Task not found" });
 
     await task.destroy();
-    res.json({ message: 'Task deleted successfully.' });
+    res.json({ message: "Task deleted successfully." });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
