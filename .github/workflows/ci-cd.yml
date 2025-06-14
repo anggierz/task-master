@@ -46,6 +46,10 @@ jobs:
       - name: Run tests
         run: npm test
 
+      - name: Unshallow repository
+        if: success()
+        run: git fetch --unshallow
+
       - name: Deploy to Heroku
         if: success()
         env:
