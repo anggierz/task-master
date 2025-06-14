@@ -30,10 +30,16 @@ Este repositorio es la resolución a la actividad Seguridad, pruebas y despliegu
 
 ### 🔧 Pasos
 
+1. Clonar el repositorio
 ```bash
 git clone https://github.com/anggierz/task-master.git
 cd task-master
-cp .env.example .env
+```
+2. Crear el archivo .env basado en .env.example (el .env será proporcionado al profesor)
+
+3. Construir Docker
+
+```bash
 docker-compose up --build
 ```
 
@@ -54,10 +60,10 @@ npm run test
 |--------|------------------------|-------------------------------|
 | POST   | `/api/users/register` | Registro de usuario           |
 | POST   | `/api/users/login`    | Login y obtención de JWT      |
-| GET    | `/api/tasks`          | Obtener todas las tareas      |
-| POST   | `/api/tasks`          | Crear tarea                   |
-| PUT    | `/api/tasks/:id`      | Actualizar tarea              |
-| DELETE | `/api/tasks/:id`      | Eliminar tarea                |
+| GET    | `/api/tasks`          | Obtener tareas (autenticado)  |
+| POST   | `/api/tasks`          | Crear tarea (autenticado)     |
+| PUT    | `/api/tasks/:id`      | Actualizar tarea (autenticado)|
+| DELETE | `/api/tasks/:id`      | Eliminar tarea (autenticado)  |
 
 ---
 
@@ -71,7 +77,7 @@ La conexión CI/CD se realiza con **GitHub Actions**. Solo se realiza `deploy` s
 
 ---
 
-## ♻️ Posibles mejoras futuras
+## ♻️ Mejoras Futuras
 
 - Mejorar la robustez de la aplicación: control de errores, refactorización...
 - Mejorar los archivos relacionados con Docker
