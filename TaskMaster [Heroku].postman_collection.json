@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "ddb4870e-adb3-41f3-b286-fa493a933cd0",
+		"name": "TaskMaster [Heroku]",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39581081"
+	},
+	"item": [
+		{
+			"name": "/api/users/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"anggie@test.com\",\r\n    \"password\": \"miPassSegura\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://task-master-app-exercise-node-debeb7a34c5f.herokuapp.com/api/users/login",
+					"protocol": "https",
+					"host": [
+						"task-master-app-exercise-node-debeb7a34c5f",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/users/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"anggie@test.com\",\r\n    \"password\": \"miPassSegura\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://task-master-app-exercise-node-debeb7a34c5f.herokuapp.com/api/users/login",
+					"protocol": "https",
+					"host": [
+						"task-master-app-exercise-node-debeb7a34c5f",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/tasks",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "api/tasks",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ5OTI2ODM0fQ.QhKX1rMoXo_VlpEdqJ-Cc3gsqj-DSb0F_VG9IKUq_DM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Completar ejercicios Node\",\r\n    \"completed\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://task-master-app-exercise-node-debeb7a34c5f.herokuapp.com/api/tasks",
+					"protocol": "https",
+					"host": [
+						"task-master-app-exercise-node-debeb7a34c5f",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/tasks/:id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ5OTI2ODM0fQ.QhKX1rMoXo_VlpEdqJ-Cc3gsqj-DSb0F_VG9IKUq_DM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Completar ejercicios Node\",\r\n    \"completed\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://task-master-app-exercise-node-debeb7a34c5f.herokuapp.com/api/tasks/2",
+					"protocol": "https",
+					"host": [
+						"task-master-app-exercise-node-debeb7a34c5f",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"tasks",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/tasks/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ5OTI2ODM0fQ.QhKX1rMoXo_VlpEdqJ-Cc3gsqj-DSb0F_VG9IKUq_DM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://task-master-app-exercise-node-debeb7a34c5f.herokuapp.com/api/tasks/2",
+					"protocol": "https",
+					"host": [
+						"task-master-app-exercise-node-debeb7a34c5f",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"tasks",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
