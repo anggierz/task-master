@@ -1,0 +1,19 @@
+name: Ejecuta docker build en cada push a una etiqueta
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v3
+
+      - name: Construir la imagen Docker
+        run: docker build .
+
+
+# Link al repositorio y rama de Github Actions del proyecto que contiene este workflow: https://github.com/anggierz/task-master/tree/feature/actividad-actions
